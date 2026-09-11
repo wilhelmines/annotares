@@ -1,35 +1,29 @@
-# Dataset for sequence tagging in the legal domain
+# Annotares: A Dataset for Extracting Logical Structures from German Statutory Texts
 
-This is Annotares a novel dataset
-The files include the Baugesetzbuch (BauGB), the Bundesausbildungsförderungsgesetz (BAföG) und the Bundesdatenschutzgesetz (BDSG). The BauGB and the BAföG are samples with 50 sentences each. The BDSG was annotated completely.
+This repository contains the dataset for the following publication:
 
-## Krippendorff's Alpha
+> Ronja Schwarz, Jannik Strötgen: [Annotares: A Dataset for Extracting Logical Structures from German Statutory Texts](https://arxiv.org/pdf/2608.03898)
 
-| Dataset | Annotators | α |
-| ------- | ---------- | --- |
-| BAföG | All (3) | 0.815 |
-| | 00 & 01 | 0.897 |
-| | 00 & 02 | 0.685 |
-| | 01 & 02 | 0.697 |
-| BauGB | All (2) | 0.926 |
-| BDSG | All (8) | 0.821 |
-| | 00 & 01 | 0.896 |
-| | 00 & 02 | 0.592 |
-| | 00 & 03 | 0.483 |
-| | 00 & 04 | 0.858 |
-| | 00 & 05 | 0.826 |
-| | 00 & 06 | 0.942 |
-| | 00 & 07 | 0.923 |
+Please cite this paper if you are using the dataset. For further question contact [Ronja Schwarz](mailto:mail@aesz.org).
 
-The BDSG includes the results of the 6 annotators that achieved an Krippendorff's Alpha higher than $0.8$. The BDSG has a Krippendorff's Alpha of $0.893$.
+## Purpose and Maintenance
 
-## Corpus Statistics
+The dataset is a prototype for a new task in the legal domain and part of the paper listed above. No further work on this dataset is planned.
 
-| Law | Usage | Sentences | Tokens | Rechtsfolge (%) | Tatbestand (%) | None (%) |
-| --- | ----- | --------- | ------ | --------------- | -------------- | -------- |
-| BAföG | Test | 50 | 2121 | 38.0 | 57.6 | 4.4 |
-| BauGB | Test | 50 | 1905 | 46.3 | 46.6 | 7.1 |
-| BDSG | Train & Test | 439 | 17524 | 44.3 | 40.6 | 15.1 |
-| **Combined** | | **539** | **21550** | **43.8** | **42.8** | **13.4** |
+## Dataset
 
-Further information can be found in the paper: "Annotares: A Dataset for Extracting Logical Structures from German Statutory Texts"
+This dataset is for the extraction of conditional information from german statutory texts. It consists of three different laws: the Baugesetzbuch (BauGB), the Bundesausbildungsförderungsgesetz (BAföG) und the Bundesdatenschutzgesetz (BDSG). The BDSG was annotated completely. The BauGB and the BAföG are sampled for 50 sentences each.
+
+The annotation schema comprises three classes Tatbestand (legal condition), Rechtsfolge (legal consequence), and None.
+
+Additional information can be found in the annotation guidelines available in the dataset sub-dir.
+
+### Files
+
+The provided files contain the templates and the intermediate steps as jsonl, and the preprocessed outputs in the conll format. A split into three different files with 80% for training, 10% for validation and 10% for testing for the BDSG is included aswell.
+
+The preprocessing step is carried out by using stanza to add dependency and part-of-speech tags for each token.
+
+## License
+
+The work provided by this repository is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
